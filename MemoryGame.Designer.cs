@@ -34,6 +34,8 @@
             this.GameOver = new System.Windows.Forms.Label();
             this.RestartBtn = new System.Windows.Forms.Button();
             this.QuitBtn = new System.Windows.Forms.Button();
+            this.GuessText = new System.Windows.Forms.Label();
+            this.GuessLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // GamePlan
@@ -70,9 +72,9 @@
             // 
             this.PointLabel.AutoSize = true;
             this.PointLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PointLabel.Location = new System.Drawing.Point(600, 98);
+            this.PointLabel.Location = new System.Drawing.Point(594, 96);
             this.PointLabel.Name = "PointLabel";
-            this.PointLabel.Size = new System.Drawing.Size(0, 32);
+            this.PointLabel.Size = new System.Drawing.Size(27, 32);
             this.PointLabel.TabIndex = 2;
             this.PointLabel.Text = "0";
             // 
@@ -87,7 +89,6 @@
             this.GameOver.TabIndex = 3;
             this.GameOver.Text = "Game over!";
             this.GameOver.Visible = false;
-
             // 
             // RestartBtn
             // 
@@ -109,19 +110,41 @@
             this.QuitBtn.UseVisualStyleBackColor = true;
             this.QuitBtn.Click += new System.EventHandler(this.CloseApp);
             // 
-            // Form1
+            // GuessText
+            // 
+            this.GuessText.AutoSize = true;
+            this.GuessText.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GuessText.Location = new System.Drawing.Point(545, 149);
+            this.GuessText.Name = "GuessText";
+            this.GuessText.Size = new System.Drawing.Size(136, 45);
+            this.GuessText.TabIndex = 6;
+            this.GuessText.Text = "Guesses";
+            // 
+            // GuessLabel
+            // 
+            this.GuessLabel.AutoSize = true;
+            this.GuessLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GuessLabel.Location = new System.Drawing.Point(594, 210);
+            this.GuessLabel.Name = "GuessLabel";
+            this.GuessLabel.Size = new System.Drawing.Size(27, 32);
+            this.GuessLabel.TabIndex = 8;
+            this.GuessLabel.Text = "0";
+            // 
+            // MemoryGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(684, 511);
+            this.Controls.Add(this.GuessLabel);
+            this.Controls.Add(this.GuessText);
             this.Controls.Add(this.QuitBtn);
             this.Controls.Add(this.RestartBtn);
             this.Controls.Add(this.GameOver);
             this.Controls.Add(this.PointLabel);
             this.Controls.Add(this.PointsText);
             this.Controls.Add(this.GamePlan);
-            this.Name = "Form1";
+            this.Name = "MemoryGame";
             this.Text = "MemoryGame";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -142,5 +165,7 @@
         private Label GameOver;
         private Button RestartBtn;
         private Button QuitBtn;
+        private Label GuessText;
+        private Label GuessLabel;
     }
 }

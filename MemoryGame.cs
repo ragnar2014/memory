@@ -10,6 +10,7 @@ namespace Memory
         private Random _random = new Random();
         private List<Label> _clickedLabels = new List<Label>();
         private bool pair = false;
+        private int clicks = 0;
         private List<Color> prepColorList;
         private List<Color> _colorList = new List<Color>()
         {
@@ -63,7 +64,7 @@ namespace Memory
                     tempLabel.TabIndex = 0;
                     tempLabel.Click += new EventHandler(Sqr_Click);
                     tempLabel.Name = NameCounter.ToString();
-                    tempLabel.Image = Properties.Resources.dennis;
+                    tempLabel.Image = Properties.Resources.kort;
                     tempLabel.MouseLeave += new EventHandler(Sqr_MouseLeave);
                     GamePlan.Controls.Add(tempLabel, row, columns);
                 }
@@ -150,21 +151,18 @@ namespace Memory
             {
                 foreach (Label l in _clickedLabels)
                 {
-                    l.Image = Properties.Resources.dennis;
+                    l.Image = Properties.Resources.kort;
                 }
                 
                 newClickedLabel.Image = null;
                 _clickedLabels.Clear();
                 _clickedLabels.Add(newClickedLabel);
             }
-
         }
 
-
-        private void AdjustPoints(MathOperator expression)
+        public void AdjustPoints(MathOperator expression)
         {
             int labelPoints = int.Parse(PointLabel.Text);
-
             switch (expression)
             {
                 case MathOperator.Add:
@@ -178,14 +176,15 @@ namespace Memory
                 break;
             }
             PointLabel.Text = labelPoints.ToString();
+            clicks++;
+            GuessLabel.Text = clicks.ToString();
         }
 
         private void StartGame(object sender, MouseEventArgs e)
         {
-
             PointLabel.Invoke(new Action(() => PointLabel.Text = "0"));
-            GameOver.Visible = false;
-            
+            GuessLabel.Invoke(new Action(() => GuessLabel.Text = "0"));
+            GameOver.Visible = false;           
             StartGame();
         }
 
